@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HelloWorldMVC.Context;
+using HelloWorldMVC.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +12,12 @@ namespace HelloWorldMVC.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            List<Book> KitapListesi = null;
+
+            BookStoreContext context = new BookStoreContext();
+
+            KitapListesi = context.Books.ToList();
+            return View(KitapListesi);
         }
 
         public ActionResult About()

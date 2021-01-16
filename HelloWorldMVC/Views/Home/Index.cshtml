@@ -1,3 +1,27 @@
-﻿@{
+﻿@model List<HelloWorldMVC.Models.Book> 
+@{
     ViewBag.Title = "Home Page";
 }
+
+
+<table>
+    <tr>
+        <th>Baslık</th>
+        <th>Açıklama</th>
+        <th>Tur</th>
+        <th>Yayın Tarihi</th>
+        <th>Fiyat</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Title</td>
+            <td>@item.Description</td>
+            <td>@item.Type</td>
+            <td>@item.PublishDate</td>
+            <td>@item.Price</td>
+        </tr>
+
+    }
+
+</table>
